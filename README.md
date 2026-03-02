@@ -1,39 +1,29 @@
 # Multi-agent-system
 Multi-agent RAG system for autonomous CV analysis, semantic job matching using FAISS, and automated scoring with LLMs.
-This project features an advanced Multi-Agent RAG (Retrieval-Augmented Generation) System designed to automate the alignment between professional profiles and job opportunities. Developed for the Accenture AI Challenge, the system transforms unstructured PDF data into structured, actionable insights using LLMs, vector embeddings, and rigorous data validation.
 
-🏗️ System Architecture
-The solution is built on a modular, agentic framework where specialized components collaborate to ensure precision and scalability:
+# Accenture AI Challenge Finalist Project 🚀
+This advanced system leverages a Multi-Agent Architecture and Retrieval-Augmented Generation (RAG) to automate the alignment between professional talent and job opportunities. It transforms unstructured PDF data into structured, actionable insights using LLMs and vector embeddings.
 
-Extraction Agent (OCR & Structured Output): Utilizes doctr for optical character recognition and Pydantic to enforce data schemas, ensuring that education, experience, and skills are parsed into reliable JSON formats.
+# 🏗️ System Architecture
+The engine is divided into three specialized agent layers that ensure scalability, precision, and explainability:
 
-Vector Agent (Semantic Search): Implements FAISS (Facebook AI Similarity Search) to index job vacancies. It performs high-dimensional semantic searches to find matches based on context rather than just keywords.
+1. Extraction & Data Integrity Agent 📄
+Technology: OCR powered by doctr and schema validation via Pydantic.
 
-Scoring Agent (Reasoning & Evaluation): An LLM-driven agent that analyzes the "Must Have" and "Nice to Have" requirements. It calculates a compatibility score (0-10) and applies business logic (e.g., minimum experience filters) to generate human-readable recommendations.
+Function: Processes PDF resumes to extract education, technical skills, and experience years with a guaranteed JSON output format.
 
-🛠️ Tech Stack
-Orchestration: LangChain.
+Logic: Implements weighted experience calculations, accounting for internships and academic projects.
 
-Language Model: Llama 2 via Ollama.
+2. Semantic Vector Agent 🔍
+Technology: FAISS (Facebook AI Similarity Search) and OllamaEmbeddings.
 
-Vector Database: FAISS.
+Function: Indexes job vacancies and performs high-dimensional semantic searches to find the "conceptual distance" between a candidate and a role.
 
-Data Integrity: Pydantic Models.
+Advantage: Moves beyond keyword matching by understanding the context and relationships between different technologies.
 
-UI/Interface: Streamlit.
+3. Expert Scoring Agent ⚖️
+Technology: Advanced reasoning using Llama 2.
 
-📈 Financial Industry Relevance
-While applied to recruitment, this architecture is highly transferable to Global Asset Allocation:
+Function: Generates a comprehensive report including a Global Compatibility Score (0-10) and a probability of success.
 
-Unstructured Data Processing: The same logic used to parse CVs can be applied to extracting financial KPIs from quarterly earnings reports.
-
-Portfolio Similarity: The vector indexing approach allows for identifying assets with similar risk/return profiles across global markets.
-
-Automated Due Diligence: The scoring agent demonstrates how to automate the checking of investment mandates and regulatory constraints.
-
-🚀 Key Features
-Automated Parsing: Extracts years of experience, technical skills, and educational background from PDFs.
-
-Strict Business Rules: Includes logic to discard candidates if they don't meet the "must-have" experience criteria.
-
-Explainable AI: Provides a detailed report justifying why a candidate fits or does not fit a specific role.
+Business Rules: Enforces strict filtering; if "Must-Have" requirements are not met, the admission probability is automatically set to 0%.
